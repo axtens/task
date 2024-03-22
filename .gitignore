@@ -1,0 +1,6 @@
+ex.err
+out
+*~
+deleted.txt
+*.cmd
+build_**/** 
