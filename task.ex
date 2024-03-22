@@ -9,6 +9,10 @@ include std/io.e
 include euphoria/tokenize.e
 include std/console.e 
 
+ifdef WINDOWS then
+--    include prompt_string_ed.e 
+end ifdef 
+
 without warning
 with trace
 
@@ -329,7 +333,11 @@ if length(cl) < 3 then
     sequence parse = {}
     while 1 do
         cl = {}
-        sequence cmd = prompt_string(prompt())
+        --ifdef WINDOWS then
+        --    sequence cmd = prompt_string_ed(prompt())
+        --elsedef
+            sequence cmd = prompt_string(prompt())
+        --end ifdef
         if equal("exit", cmd) then
             exit 
         end if

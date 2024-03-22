@@ -40,7 +40,9 @@ global function prompt_string_ed(sequence prompt)
   integer in_l                     -- current length of input string
   integer screen_li                -- screen cursor position line
 
-  in_max = video_config()[10] - length(prompt) - 1
+  object vid_conf = video_config()
+  in_max = vid_conf[10] - length(prompt) - 1
+  
 
   for j = 1 to length(edstack) do          -- reduce lines in stack to max. length
     if length(edstack[j]) > in_max then
